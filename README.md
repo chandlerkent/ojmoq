@@ -83,6 +83,12 @@ or, my favorite, with autotest
 	
 from the top level of the project.
 
+Contributors
+============
+
+Derek Hammer (hammerdr)
+Jarod Santo (sant0sk1)
+
 Even More Information
 =====================
 
