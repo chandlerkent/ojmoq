@@ -133,6 +133,14 @@
     [self assert:returnValue equals:[aMock a:@"Arg1"]];
 }
 
+- (void)testThatOJMoqDoesIgnoreArgumentsWhenGettingReturnValueWhenNotSpecified
+{
+    var aMock = moq();
+    var returnValue = "Value";
+    [aMock selector:@selector(a:) returns:returnValue];
+    [self assert:returnValue equals:[aMock a:[CPArray array]]];
+    [self assert:returnValue equals:[aMock a:@"Arg1"]];
+}
 
 // Adding these because ojtest does not have them. Should eventually
 // do a pull request for these.
