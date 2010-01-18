@@ -108,6 +108,12 @@ function moq(baseObject)
 	__ojmoq_setReturnValue(anInvocation, _selectors);
 }
 
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    return __ojmoq_findSelector([[OJMoqSelector alloc] initWithName:sel_getName(aSelector) 
+		withArguments:[CPArray array]], _selectors);
+}
+
 @end
 
 function __ojmoq_incrementNumberOfCalls(anInvocation, _selectors)

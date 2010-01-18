@@ -142,6 +142,15 @@
     [self assert:returnValue equals:[aMock a:@"Arg1"]];
 }
 
+- (void)testThatOJMoqDoesRespondToSelectorWhenSelectorIsAdded
+{
+    var aMock = moq();
+    
+    [aMock selector:@selector(test:) returns:NO];
+    [self assertTrue:[aMock respondsToSelector:@selector(test:)]];
+    [self assertFalse:[aMock respondsToSelector:@selector(verifyThatAllExpectationsHaveBeenMet)]];
+}
+
 // Adding these because ojtest does not have them. Should eventually
 // do a pull request for these.
 - (void)assert:(id)expected notEqual:(id)actual
